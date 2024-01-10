@@ -25,7 +25,7 @@ class TestHootel(object):
     @allure.severity(allure.severity_level.TRIVIAL)
     @allure.tag("login")
     def test_login(self, email, password):
-        login_btn = self.browser.find_element(By.XPATH, '//a[@class="nav-link"]')
+        login_btn = WebDriverWait(self.browser, 5).until(EC.element.clickable((By.XPATH, '//a[@class="nav-link"]')))
         login_btn.click()
 
         email_input = self.browser.find_element(By.ID, 'email')
